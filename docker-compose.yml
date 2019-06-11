@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+
+  apiserver:
+    build: camapi
+    image: dimeking/camapi:latest
+    environment:
+      - FLASK_ENV=development
+    ports:
+      - 5000:5000
+    restart: always
+    # networks: 
+    #   - backend
+
+  device:
+    build: camcam
+    image: dimeking/camcam:latest
+    environment:
+      - FLASK_ENV=development
+    restart: always
+#     networks: 
+#       - backend
+
+# networks:
+#   backend:
+#     driver: "bridge"
+
